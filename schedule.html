@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Розклад занять — МППК №3</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #ffffff;
+            --bg-light: #f3f4f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-area p {
+            font-size: 0.9rem;
+            color: #93c5fd;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .main-content {
+            padding: 50px 0;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Розклад дзвінків */
+        .bells-table {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .bells-table th, .bells-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .bells-table th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        /* Перемикач курсів (Таби) */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background-color: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Картки груп */
+        .groups-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .group-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .group-card h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #f3f4f6;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed #f3f4f6;
+            font-size: 0.95rem;
+        }
+
+        .lesson-num {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+
+        .lesson-name {
+            flex-grow: 1;
+        }
+
+        .room {
+            color: #6b7280;
+            font-size: 0.85rem;
+            background: #e5e7eb;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        footer {
+            background-color: #030712;
+            color: #6b7280;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <h1>МППК №3</h1>
+                <p>Комунальний заклад „Мукачівський професійний політехнічний коледж”</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="schedule.html" class="active">Розклад занять</a></li>
+                    <li><a href="index.html#specialties">Спеціальності</a></li>
+                    <li><a href="index.html#professions">Професії</a></li>
+                    <li><a href="index.html#contacts">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <h2 class="page-title">Розклад навчальних занять</h2>
+
+        <!-- Розклад дзвінків -->
+        <h3 style="text-align: center; margin-bottom: 15px; color: var(--primary-color);">Розклад дзвінків</h3>
+        <table class="bells-table">
+            <thead>
+                <tr>
+                    <th>Пара / Урок</th>
+                    <th>Час проведення</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>1 пара (1, 2 урок)</td><td>08:30 - 09:50</td></tr>
+                <tr><td>2 пара (3, 4 урок)</td><td>10:05 - 11:25</td></tr>
+                <tr><td>3 пара (5, 6 урок)</td><td>11:55 - 13:15</td></tr>
+                <tr><td>4 пара (7, 8 урок)</td><td>13:30 - 14:50</td></tr>
+            </tbody>
+        </table>
+
+        <!-- Кнопки перемикання курсів -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openCourse('course-1')">1 Курс</button>
+            <button class="tab-btn" onclick="openCourse('course-2')">2 Курс</button>
+            <button class="tab-btn" onclick="openCourse('course-3')">3-4 Курс</button>
+        </div>
+
+        <!-- Контент 1 КУРСУ -->
+        <div id="course-1" class="tab-content active">
+            <div class="groups-grid">
+                <!-- Група 1 -->
+                <div class="group-card">
+                    <h3>Група №11 <span>(ОПЗ)</span></h3>
+                    <div class="schedule-item"><span class="lesson-num">1.</span><span class="lesson-name">Українська мова</span><span class="room">каб. 24</span></div>
+                    <div class="schedule-item"><span class="lesson-num">2.</span><span class="lesson-name">Математика</span><span class="room">каб. 12</span></div>
+                    <div class="schedule-item"><span class="lesson-num">3.</span><span class="lesson-name">Інформатика</span><span class="room">лаборат. 3</span></div>
+                    <div class="schedule-item"><span class="lesson-num">4.</span><span class="lesson-name">Фізична культура</span><span class="room">Спортзал</span></div>
+                </div>
+                <!-- Група 2 -->
+                <div class="group-card">
+                    <h3>Група №12 <span>(Електромонтери)</span></h3>
+                    <div class="schedule-item"><span class="lesson-num">1.</span><span class="lesson-name">Фізика</span><span class="room">каб. 7</span></div>
+                    <div class="schedule-item"><span class="lesson-num">2.</span><span class="lesson-name">Українська література</span><span class="room">каб. 21</span></div>
+                    <div class="schedule-item"><span class="lesson-num">3.</span><span class="lesson-name">Вступ до спеціальності</span><span class="room">майстерня 1</span></div>
+                    <div class="schedule-item"><span class="lesson-num">4.</span><span class="lesson-name">Історія України</span><span class="room">каб. 15</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контент 2 КУРСУ -->
+        <div id="course-2" class="tab-content">
+            <div class="groups-grid">
+                <div class="group-card">
+                    <h3>Група №21 <span>(Радіомеханіки)</span></h3>
+                    <div class="schedule-item"><span class="lesson-num">1.</span><span class="lesson-name">Електротехніка</span><span class="room">каб. 32</span></div>
+                    <div class="schedule-item"><span class="lesson-num">2.</span><span class="lesson-name">Матеріалознавство</span><span class="room">каб. 5</span></div>
+                    <div class="schedule-item"><span class="lesson-num">3.</span><span class="lesson-name">Іноземна мова</span><span class="room">каб. 18</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Контент 3-4 КУРСУ -->
+        <div id="course-3" class="tab-content">
+            <div class="groups-grid">
+                <div class="group-card">

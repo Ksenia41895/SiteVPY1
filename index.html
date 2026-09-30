@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мукачівський професійний політехнічний коледж (МППК №3)</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #ffffff;
+            --bg-light: #f3f4f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo-area h1 {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .logo-area p {
+            font-size: 0.9rem;
+            color: #93c5fd;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(30, 58, 138, 0.85)), url('https://unsplash.com') no-repeat center center/cover;
+            color: var(--text-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #d97706;
+            color: white;
+        }
+
+        .info-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--secondary-color);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .card ul {
+            list-style-position: inside;
+            padding-left: 10px;
+        }
+
+        .card li {
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            background-color: #111827;
+            color: var(--text-light);
+            padding: 60px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-item h4 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item p, .contact-item a {
+            color: #9ca3af;
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        footer {
+            background-color: #030712;
+            color: #6b7280;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1f2937;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-area">
+                <h1>МППК №3</h1>
+                <p>Комунальний заклад „Мукачівський професійний політехнічний коледж”</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Головна</a></li>
+                    <li><a href="schedule.html">Розклад занять</a></li>
+                    <li><a href="#specialties">Спеціальності</a></li>
+                    <li><a href="#professions">Професії</a></li>
+                    <li><a href="#contacts">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Головний баннер -->
+    <section class="hero" id="about">
+        <div class="container">
+		<img  align=center src="1.jpg" alt="">
+            <h2>Твій крок до успішного майбутнього!</h2>
+            <p>Вітаємо на інформаційній сторінці Мукачівського професійного політехнічного коледжу Закарпатської обласної ради (раніше — Вище професійне училище №3 м. Мукачево). Обирай якісну освіту та затребувані на ринку праці професії!</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="#contacts" class="btn">Приймальна комісія</a>
+                <a href="schedule.html" class="btn" style="background-color: var(--secondary-color); color: white;">Переглянути розклад груп</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Напрямки навчання -->
+    <section class="info-section" id="specialties">
+			
+        <div class="container">
+            <h2 class="section-title">Спеціальності (Фаховий молодший бакалавр)</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Електрична інженерія (G3)</h3>
+                    <p>Підготовка фахівців з монтажу, обслуговування та ремонту сучасного електроустаткування та відновлювальної енергетики.</p>
+                </div>
+                <div class="card">
+                    <h3>Електроніка та телекомунікації (G5)</h3>
+                    <p>Вивчення електронних комунікацій, приладобудування, комп'ютерних систем та радіотехнічного обладнання.</p>
+                </div>
+                <div class="card">
+                    <h3>Інформаційна та архівна справа (B13)</h3>
+                    <p>Підготовка фахівців з обробки інформації, цифрового документознавства та адміністрування баз даних.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Робітничі професії -->
+    <section class="info-section" style="background-color: white;" id="professions">
+        <div class="container">
+            <h2 class="section-title">Робітничі професії (на базі 9 та 11 класів)</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>На базі 9 класів (термін 3 р.)</h3>
+                    <ul>
+                        <li>Регулювальник / контролер радіоелектронної апаратури</li>
+                        <li>Токар / оператор верстатів з ПК</li>
+                        <li>Офісний службовець (бухгалтерія) / адміністратор</li>
+                        <li>Майстер з монтажу систем відновлювальної енергетики</li>
+                        <li>Електромонтер з ремонту електроустаткування</li>
+                        <li>Оператор з обробки інформації та ПЗ</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>На базі 11 класів (термін 1 р.)</h3>
+                    <ul>
+                        <li>В'язальник схемних джгутів, кабелів та шнурів</li>
+                        <li>Короткострокові курси для дорослого населення</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакти -->
+    <section class="contact-info" id="contacts">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h4>Адреса закладу</h4>
+                    <p>89600, Закарпатська обл.,<br>м. Мукачево, вул. Кооперативна, 2</p>
+                </div>
+                <div class="contact-item">
+                    <h4>Приймальна комісія</h4>
+                    <p>Телефон: <a href="tel:+380995300085">+38 (099) 530-00-85</a></p>
+                    <p>Email: <a href="mailto:vstupvpu3@gmail.com">vstupvpu3@gmail.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>Адміністрація</h4>
+                    <p>В.о. директора: Газдик Мирослава Миронівна</p>
+                    <p>Email: <a href="mailto:htsvpu3@gmail.com">htsvpu3@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Підвал -->
+    <footer>
